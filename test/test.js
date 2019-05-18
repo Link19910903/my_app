@@ -64,6 +64,16 @@ export default class Msg extends React.Component {
         let findindex = _.findIndex(users, o => o.user == 'fred')
         console.log('findIndex',findindex)
     }
+    //移除数组中predicate（断言）返回为真值的所有元素，并返回移除元素组成的数组。predicate（断言） 会传入3个参数： (value, index, array)。 
+    remove(){
+        let array = [1,2,3,4]
+        let evens = _.remove(array,(n)=>{
+            return n % 2 == 0
+        })
+        console.log('array',array)
+        console.log('evens',evens)
+    }
+
 
 
     promiseTest(resolve, reject){

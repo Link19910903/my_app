@@ -64,8 +64,43 @@ export default class Msg extends React.Component {
         let findindex = _.findIndex(users, o => o.user == 'fred')
         console.log('findIndex',findindex)
     }
+    //移除数组中predicate（断言）返回为真值的所有元素，并返回移除元素组成的数组。predicate（断言） 会传入3个参数： (value, index, array)
+    remove(){
+       let array = [1,2,3,4,5] 
+       let evens = _.remove(array,n => n%2==0) 
+       console.log('array',array)
+       console.log('evens',evens)
+    }
+    //反转array
+    
+    reverse(){
+        let array = [1,2,3,4,5,6]
+        _.reverse(array)
+        console.log('reverse',array)
+    }
 
-
+    //裁剪数组，从start位置开始到end结束，不包括end本身的位置,返回裁剪部分的新数组jkj
+    slice(){
+        let arr = [1,2,3,4,5,6,7,8,9,10]
+        let arr1 = _.slice(arr,2,5)
+        console.log('slicearr',arr)
+        console.log('slicearr1',arr1)
+    } 
+    //遍历 collection（集合）元素，返回 predicate（断言函数）返回真值 的所有元素的数组。 predicate（断言函数）调用三个参数：(value, index|key, collection)。
+    filter(){
+        let users = [
+            { 'user': 'barney', 'age': 36, 'active': true },
+            { 'user': 'fred',   'age': 40, 'active': false }
+          ];
+        let f1 = _.filter(users,o=>!o.active)
+        let f2 = _.filter(users,{ 'age': 36, 'active': true })
+        let f3 = _.filter(users,['active', false])
+        let f4 = _.filter(users,'active')
+        console.log(f1)
+        console.log(f2)
+        console.log(f3)
+        console.log(f4)
+    }
     promiseTest(resolve, reject){
         let timeOut = Math.random() * 2
         console.log('set time to:' + timeOut + 'seaconds')
@@ -92,12 +127,16 @@ export default class Msg extends React.Component {
         this.getData()
     }
     componentDidMount(){
-        this.chunk()
-        this.compact()
-        this.concat()
-        this.difference()
-        this.drop()
-        this.findIndex()
+        // this.chunk()
+        // this.compact()
+        // this.concat()
+        // this.difference()
+        // this.drop()
+        // this.findIndex()
+        // this.remove()
+        // this.reverse()
+        // this.slice()
+        this.filter()
         // let p1 = new Promise(this.promiseTest)
         // let p2 = p1.then((result) => {
         //     console.log('success: ' + result)
