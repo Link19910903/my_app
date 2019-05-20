@@ -101,6 +101,35 @@ export default class Msg extends React.Component {
         console.log(f3)
         console.log(f4)
     }
+    //遍历 collection（集合）元素，返回 predicate（断言函数）第一个返回真值的第一个元素。predicate（断言函数）调用3个参数： (value, index|key, collection)
+    find(){
+        let users = [
+            { 'user': 'barney',  'age': 36, 'active': true },
+            { 'user': 'fred',    'age': 40, 'active': false },
+            { 'user': 'pebbles', 'age': 1,  'active': true }
+          ];
+        let find1 = _.find(users, o => o.age < 40)
+        let find2 = _.find(users,{ 'age': 1, 'active': true })
+        let find3 = _.find(users,['active', false])
+        let find4 = _.find(users,'active')
+        console.log(find1,find2,find3,find4)
+    }
+    flatMap(){
+        console.log(_.flatMap([1,2,3], n=>[n,n,n,n]))
+    }
+
+    Foo(){
+        this.a = 1
+        this.b = 2
+    }
+    forIn(){
+        let Foo = this.Foo
+        Foo.prototype.c = 3
+        _.forIn(new Foo,(value,key)=>{
+            console.log(`value:${value} key:${key}`)
+        })
+        
+    }
     promiseTest(resolve, reject){
         let timeOut = Math.random() * 2
         console.log('set time to:' + timeOut + 'seaconds')
@@ -136,7 +165,10 @@ export default class Msg extends React.Component {
         // this.remove()
         // this.reverse()
         // this.slice()
-        this.filter()
+        // this.filter()
+        // this.find()
+        this.flatMap()
+        this.forIn()
         // let p1 = new Promise(this.promiseTest)
         // let p2 = p1.then((result) => {
         //     console.log('success: ' + result)
