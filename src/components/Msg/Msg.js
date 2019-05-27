@@ -183,7 +183,7 @@ export default class Msg extends React.Component {
             console.log('失败：' + reason)
         })
     }
-    componentWillReceiveProps(){
+    componentDidMount(){
         const myChart = echarts.init(this.echarts.current);
         myChart.setOption({
             title: {
@@ -206,7 +206,6 @@ export default class Msg extends React.Component {
         return (
             <div>
                 <div ref={this.echarts}  style={{ height: 260 }}>
-                
                 </div>
             </div>
         )
