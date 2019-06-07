@@ -2,11 +2,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
+import Routers from './routers'
 require('../mockconfig.js')
 let _ = require('lodash')
 
 ReactDOM.render(
-  <App/>,
+  <Routers/>,
   document.getElementById('root')
 )
 
