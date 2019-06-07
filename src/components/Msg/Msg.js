@@ -3,6 +3,7 @@ import echarts from 'echarts'
 import api from '../../services/axios'
 
 let testArr = []
+
 export default class Msg extends React.Component {
     constructor(props){
         super(props)
@@ -66,13 +67,13 @@ export default class Msg extends React.Component {
     }
     //移除数组中predicate（断言）返回为真值的所有元素，并返回移除元素组成的数组。predicate（断言） 会传入3个参数： (value, index, array)
     remove(){
-       let array = [1,2,3,4,5] 
-       let evens = _.remove(array,n => n%2==0) 
+       let array = [1,2,3,4,5]
+       let evens = _.remove(array,n => n%2==0)
        console.log('array',array)
        console.log('evens',evens)
     }
     //反转array
-    
+
     reverse(){
         let array = [1,2,3,4,5,6]
         _.reverse(array)
@@ -85,7 +86,7 @@ export default class Msg extends React.Component {
         let arr1 = _.slice(arr,2,5)
         console.log('slicearr',arr)
         console.log('slicearr1',arr1)
-    } 
+    }
     //遍历 collection（集合）元素，返回 predicate（断言函数）返回真值 的所有元素的数组。 predicate（断言函数）调用三个参数：(value, index|key, collection)。
     filter(){
         let users = [
@@ -128,7 +129,7 @@ export default class Msg extends React.Component {
         _.forIn(new Foo,(value,key)=>{
             console.log(`value:${value} key:${key}`)
         })
-        
+
     }
     promiseTest(resolve, reject){
         let timeOut = Math.random() * 2
@@ -202,11 +203,11 @@ export default class Msg extends React.Component {
         });
     }
     render(){
-        
+
         return (
             <div>
                 <div ref={this.echarts}  style={{ height: 260 }}>
-                
+
                 </div>
             </div>
         )
